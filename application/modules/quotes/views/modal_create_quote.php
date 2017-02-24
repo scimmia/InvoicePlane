@@ -82,17 +82,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="quote_password"><?php echo trans('quote_password'); ?></label>
-                <input type="text" name="quote_password" id="quote_password" class="form-control"
-                       value="<?php if ($this->mdl_settings->setting('quote_pre_password') == '') {
-                           echo '';
-                       } else {
-                           echo $this->mdl_settings->setting('quote_pre_password');
-                       } ?>" style="margin: 0 auto;" autocomplete="off">
-            </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display:none;">
                 <label for="invoice_group_id"><?php echo trans('invoice_group'); ?>: </label>
 
                 <div class="controls">

@@ -10,7 +10,7 @@
         <?php $this->layout->load_view('layout/alerts'); ?>
 
         <div class="row">
-            <div class="col-xs-12 col-md-7">
+            <div class="col-xs-12 col-md-12">
                 <fieldset>
                     <legend>
                         <?php if ($this->mdl_products->form_value('product_id')) : ?>
@@ -38,15 +38,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
-                            <label class="control-label"><?php echo trans('product_sku'); ?>: </label>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-lg-8">
-                            <input type="text" name="product_sku" id="product_sku" class="form-control"
-                                   value="<?php echo $this->mdl_products->form_value('product_sku'); ?>">
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
@@ -68,59 +59,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
-                            <label class="control-label"><?php echo trans('product_price'); ?>: </label>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-lg-8">
-                            <input type="text" name="product_price" id="product_price" class="form-control"
-                                   value="<?php echo format_amount($this->mdl_products->form_value('product_price')); ?>">
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
-                            <label class="control-label"><?php echo trans('tax_rate'); ?>: </label>
+                            <label class="control-label"><?php echo trans('product_sku'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
-                            <select name="tax_rate_id" id="tax_rate_id" class="form-control">
-                                <option value="0"><?php echo trans('none'); ?></option>
-                                <?php foreach ($tax_rates as $tax_rate) { ?>
-                                    <option value="<?php echo $tax_rate->tax_rate_id; ?>"
-                                            <?php if ($this->mdl_products->form_value('tax_rate_id') == $tax_rate->tax_rate_id) {
-                                            ?>selected="selected" <?php } ?>>
-                                        <?php echo $tax_rate->tax_rate_name
-                                            . ' (' . format_amount($tax_rate->tax_rate_percent) . '%)'; ?>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                </fieldset>
-            </div>
-
-            <div class="col-xs-12 col-md-5">
-                <fieldset>
-                    <legend><?php echo trans('extra_information'); ?></legend>
-
-                    <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
-                            <label class="control-label"><?php echo trans('provider_name'); ?>: </label>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-lg-8">
-                            <input type="text" name="provider_name" id="provider_name" class="form-control"
-                                   value="<?php echo $this->mdl_products->form_value('provider_name'); ?>">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
-                            <label class="control-label"><?php echo trans('purchase_price'); ?>: </label>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-lg-8">
-                            <input type="text" name="purchase_price" id="purchase_price" class="form-control"
-                                   value="<?php echo format_amount($this->mdl_products->form_value('purchase_price')); ?>">
+                            <input type="text" name="product_sku" id="product_sku" class="form-control"
+                                   value="<?php echo $this->mdl_products->form_value('product_sku'); ?>">
                         </div>
                     </div>
 

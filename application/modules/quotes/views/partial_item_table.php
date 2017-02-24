@@ -34,22 +34,14 @@
                     <input type="text" name="item_quantity" class="input-sm form-control amount" value="">
                 </div>
             </td>
-            <td class="td-amount">
+            <td class="td-amount" style="display:none">
                 <div class="input-group">
                     <span class="input-group-addon"><?php echo trans('price'); ?></span>
                     <input type="text" name="item_price" class="input-sm form-control amount" value="">
                 </div>
             </td>
-            <td class="td-amount ">
-                <div class="input-group">
-                    <span class="input-group-addon"><?php echo trans('item_discount'); ?></span>
-                    <input type="text" name="item_discount_amount" class="input-sm form-control amount"
-                           value="" data-toggle="tooltip" data-placement="bottom"
-                           title="<?php echo $this->mdl_settings->setting('currency_symbol') . ' ' . trans('per_item'); ?>">
-                </div>
-            </td>
             <td class="td-amount">
-                <div class="input-group">
+                <div class="input-group" style="display:none">
                     <span class="input-group-addon"><?php echo trans('tax_rate'); ?></span>
                     <select name="item_tax_rate_id" name="item_tax_rate_id"
                             class="form-control input-sm">
@@ -62,7 +54,6 @@
                     </select>
                 </div>
             </td>
-            <td class="td-icon text-right td-vert-middle"></td>
         </tr>
         <tr>
             <td class="td-textarea">
@@ -70,22 +61,6 @@
                     <span class="input-group-addon"><?php echo trans('description'); ?></span>
                     <textarea name="item_description" class="input-sm form-control"></textarea>
                 </div>
-            </td>
-            <td colspan="2" class="td-amount td-vert-middle">
-                <span><?php echo trans('subtotal'); ?></span><br/>
-                <span name="subtotal" class="amount"></span>
-            </td>
-            <td class="td-amount td-vert-middle">
-                <span><?php echo trans('discount'); ?></span><br/>
-                <span name="item_discount_total" class="amount"></span>
-            </td>
-            <td class="td-amount td-vert-middle">
-                <span><?php echo trans('tax'); ?></span><br/>
-                <span name="item_tax_total" class="amount"></span>
-            </td>
-            <td class="td-amount td-vert-middle">
-                <span><?php echo trans('total'); ?></span><br/>
-                <span name="item_total" class="amount"></span>
             </td>
         </tr>
         </tbody>
@@ -112,43 +87,14 @@
                                value="<?php echo format_amount($item->item_quantity); ?>">
                     </div>
                 </td>
-                <td class="td-amount">
+                <td class="td-amount" style="display:none">
                     <div class="input-group">
                         <span class="input-group-addon"><?php echo trans('price'); ?></span>
                         <input type="text" name="item_price" class="input-sm form-control amount"
                                value="<?php echo format_amount($item->item_price); ?>">
                     </div>
                 </td>
-                <td class="td-amount ">
-                    <div class="input-group">
-                        <span class="input-group-addon"><?php echo trans('item_discount'); ?></span>
-                        <input type="text" name="item_discount_amount" class="input-sm form-control amount"
-                               value="<?php echo format_amount($item->item_discount_amount); ?>"
-                               data-toggle="tooltip" data-placement="bottom"
-                               title="<?php echo $this->mdl_settings->setting('currency_symbol') . ' ' . trans('per_item'); ?>">
-                    </div>
-                </td>
-                <td class="td-amount">
-                    <div class="input-group">
-                        <span class="input-group-addon"><?php echo trans('tax_rate'); ?></span>
-                        <select name="item_tax_rate_id" name="item_tax_rate_id"
-                                class="form-control input-sm">
-                            <option value="0"><?php echo trans('none'); ?></option>
-                            <?php foreach ($tax_rates as $tax_rate) { ?>
-                                <option value="<?php echo $tax_rate->tax_rate_id; ?>"
-                                        <?php if ($item->item_tax_rate_id == $tax_rate->tax_rate_id) { ?>selected="selected"<?php } ?>>
-                                    <?php echo format_amount($tax_rate->tax_rate_percent) . '% - ' . $tax_rate->tax_rate_name; ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </td>
-                <td class="td-icon text-right td-vert-middle">
-                    <a href="<?php echo site_url('quotes/delete_item/' . $quote->quote_id . '/' . $item->item_id); ?>"
-                       title="<?php echo trans('delete'); ?>">
-                        <i class="fa fa-trash-o text-danger"></i>
-                    </a>
-                </td>
+
             </tr>
             <tr>
                 <td class="td-textarea">
@@ -158,30 +104,11 @@
                                   class="input-sm form-control"><?php echo $item->item_description; ?></textarea>
                     </div>
                 </td>
-
-                <td colspan="2" class="td-amount td-vert-middle">
-                    <span><?php echo trans('subtotal'); ?></span><br/>
-                    <span name="subtotal" class="amount">
-                        <?php echo format_currency($item->item_subtotal); ?>
-                    </span>
-                </td>
-                <td class="td-amount td-vert-middle">
-                    <span><?php echo trans('discount'); ?></span><br/>
-                    <span name="item_discount_total" class="amount">
-                        <?php echo format_currency($item->item_discount); ?>
-                    </span>
-                </td>
-                <td class="td-amount td-vert-middle">
-                    <span><?php echo trans('tax'); ?></span><br/>
-                    <span name="item_tax_total" class="amount">
-                        <?php echo format_currency($item->item_tax_total); ?>
-                    </span>
-                </td>
-                <td class="td-amount td-vert-middle">
-                    <span><?php echo trans('total'); ?></span><br/>
-                    <span name="item_total" class="amount">
-                        <?php echo format_currency($item->item_total); ?>
-                    </span>
+                <td class="td-icon text-right td-vert-middle">
+                    <a href="<?php echo site_url('quotes/delete_item/' . $quote->quote_id . '/' . $item->item_id); ?>"
+                       title="<?php echo trans('delete'); ?>">
+                        <i class="fa fa-trash-o text-danger"></i>
+                    </a>
                 </td>
             </tr>
             </tbody>
@@ -193,7 +120,7 @@
 <div class="row">
     <div class="col-xs-12 col-md-4">
         <div class="btn-group">
-            <a href="#" class="btn_add_row btn btn-sm btn-default">
+            <a href="#" class="btn_add_row btn btn-sm btn-default"  style="display:none">
                 <i class="fa fa-plus"></i>
                 <?php echo trans('add_new_row'); ?>
             </a>
@@ -204,7 +131,7 @@
         </div>
         <br/><br/>
     </div>
-    <div class="col-xs-12 col-md-6 col-md-offset-2 col-lg-4 col-lg-offset-4">
+    <div class="col-xs-12 col-md-6 col-md-offset-2 col-lg-4 col-lg-offset-4"  style="display:none">
         <table class="table table-condensed text-right">
             <tr>
                 <td style="width: 40%;"><?php echo trans('subtotal'); ?></td>

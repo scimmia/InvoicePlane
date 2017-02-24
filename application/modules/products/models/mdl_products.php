@@ -50,7 +50,7 @@ class Mdl_Products extends Response_Model
             'product_sku' => array(
                 'field' => 'product_sku',
                 'label' => trans('product_sku'),
-                'rules' => ''
+                'rules' => 'integer|required'
             ),
             'product_name' => array(
                 'field' => 'product_name',
@@ -65,7 +65,7 @@ class Mdl_Products extends Response_Model
             'product_price' => array(
                 'field' => 'product_price',
                 'label' => trans('product_price'),
-                'rules' => 'required'
+                'rules' => ''
             ),
             'purchase_price' => array(
                 'field' => 'purchase_price',
@@ -95,8 +95,8 @@ class Mdl_Products extends Response_Model
     {
         $db_array = parent::db_array();
 
-        $db_array['product_price'] = (empty($db_array['product_price']) ? null : standardize_amount($db_array['product_price']));
-        $db_array['purchase_price'] = (empty($db_array['purchase_price']) ? null : standardize_amount($db_array['purchase_price']));
+        $db_array['product_price'] = (empty($db_array['product_price']) ? 0 : standardize_amount($db_array['product_price']));
+        $db_array['purchase_price'] = (empty($db_array['purchase_price']) ? 0 : standardize_amount($db_array['purchase_price']));
         $db_array['family_id'] = (empty($db_array['family_id']) ? null : $db_array['family_id']);
         $db_array['tax_rate_id'] = (empty($db_array['tax_rate_id']) ? null : $db_array['tax_rate_id']);
 

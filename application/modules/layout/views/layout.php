@@ -163,18 +163,6 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-caret-down"></i> &nbsp;<span
-                            class="hidden-sm"><?php echo trans('invoices'); ?></span><i
-                            class="visible-sm-inline fa fa-file-text"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" class="create-invoice"><?php echo trans('create_invoice'); ?></a></li>
-                        <li><?php echo anchor('invoices/index', trans('view_invoices')); ?></li>
-                        <li><?php echo anchor('invoices/recurring/index', trans('view_recurring_invoices')); ?></li>
-                    </ul>
-                </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -189,44 +177,6 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-caret-down"></i> &nbsp;<span
-                            class="hidden-sm"><?php echo trans('payments'); ?></span><i
-                            class="visible-sm-inline fa fa-credit-card"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><?php echo anchor('payments/form', trans('enter_payment')); ?></li>
-                        <li><?php echo anchor('payments/index', trans('view_payments')); ?></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown hidden">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-caret-down"></i> &nbsp;<span
-                            class="hidden-sm"><?php echo trans('tasks'); ?></span><i
-                            class="visible-sm-inline fa fa-check-square-o"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><?php echo anchor('tasks/form', trans('create_task')); ?></li>
-                        <li><?php echo anchor('tasks/index', trans('show_tasks')); ?></li>
-                        <li><?php echo anchor('projects/index', trans('projects')); ?></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-caret-down"></i> &nbsp;<span
-                            class="hidden-sm"><?php echo trans('reports'); ?></span><i
-                            class="visible-sm-inline fa fa-bar-chart"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><?php echo anchor('reports/invoice_aging', trans('invoice_aging')); ?></li>
-                        <li><?php echo anchor('reports/payment_history', trans('payment_history')); ?></li>
-                        <li><?php echo anchor('reports/sales_by_client', trans('sales_by_client')); ?></li>
-                        <li><?php echo anchor('reports/sales_by_year', trans('sales_by_date')); ?></li>
-                    </ul>
-                </li>
 
             </ul>
 
@@ -258,19 +208,9 @@
                         <span class="visible-xs">&nbsp;<?php echo trans('settings'); ?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><?php echo anchor('custom_fields/index', trans('custom_fields')); ?></li>
-                        <li><?php echo anchor('email_templates/index', trans('email_templates')); ?></li>
-                        <li><?php echo anchor('invoice_groups/index', trans('invoice_groups')); ?></li>
-                        <li><?php echo anchor('invoices/archive', trans('invoice_archive')); ?></li>
-                        <!-- // temporarily disabled
-                        <li><?php echo anchor('item_lookups/index', trans('item_lookups')); ?></li>
-                        -->
-                        <li><?php echo anchor('payment_methods/index', trans('payment_methods')); ?></li>
-                        <li><?php echo anchor('tax_rates/index', trans('tax_rates')); ?></li>
                         <li><?php echo anchor('users/index', trans('user_accounts')); ?></li>
                         <li class="divider hidden-xs hidden-sm"></li>
                         <li><?php echo anchor('settings', trans('system_settings')); ?></li>
-                        <li><?php echo anchor('import', trans('import_data')); ?></li>
                     </ul>
                 </li>
                 <li>

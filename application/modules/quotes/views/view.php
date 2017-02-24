@@ -123,55 +123,9 @@
 
     <div class="pull-right btn-group">
 
-        <div class="options btn-group pull-left">
-            <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                <?php echo trans('options'); ?> <i class="fa fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#add-quote-tax" data-toggle="modal">
-                        <i class="fa fa-plus fa-margin"></i>
-                        <?php echo trans('add_quote_tax'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="btn_generate_pdf"
-                       data-quote-id="<?php echo $quote_id; ?>">
-                        <i class="fa fa-print fa-margin"></i>
-                        <?php echo trans('download_pdf'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo site_url('mailer/quote/' . $quote->quote_id); ?>">
-                        <i class="fa fa-send fa-margin"></i>
-                        <?php echo trans('send_email'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="btn_quote_to_invoice"
-                       data-quote-id="<?php echo $quote_id; ?>">
-                        <i class="fa fa-refresh fa-margin"></i>
-                        <?php echo trans('quote_to_invoice'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="btn_copy_quote"
-                       data-quote-id="<?php echo $quote_id; ?>">
-                        <i class="fa fa-copy fa-margin"></i>
-                        <?php echo trans('copy_quote'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="#delete-quote" data-toggle="modal">
-                        <i class="fa fa-trash-o fa-margin"></i> <?php echo trans('delete'); ?>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <a href="#" class="btn_add_row btn btn-sm btn-default">
-            <i class="fa fa-plus"></i>
-            <?php echo trans('add_new_row'); ?>
+        <a href="#delete-quote" data-toggle="modal"  class="btn_add_row btn btn-sm btn-default">
+            <i class="fa fa-trash-o fa-margin"></i>
+            <?php echo trans('delete'); ?>
         </a>
         <a href="#" class="btn_add_product btn btn-sm btn-default">
             <i class="fa fa-database"></i>
@@ -300,16 +254,6 @@
                                     </select>
                                 </div>
 
-                                <div class="quote-properties">
-                                    <label for="quote_password">
-                                        <?php echo trans('quote_password'); ?>
-                                    </label>
-
-                                    <div class="controls">
-                                        <input type="text" id="quote_password" class="form-control input-sm"
-                                               value="<?php echo $quote->quote_password; ?>">
-                                    </div>
-                                </div>
 
                             </div>
 
@@ -332,65 +276,6 @@
                     <textarea name="notes" id="notes" rows="3"
                               class="input-sm form-control"><?php echo $quote->notes; ?></textarea>
                 </div>
-
-            </div>
-            <div class="col-xs-12 col-sm-8">
-
-                <div class="form-group">
-                    <label class="control-label"><?php echo trans('attachments'); ?></label>
-                    <br/>
-                    <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-default fileinput-button">
-                        <i class="fa fa-plus"></i>
-                        <span><?php echo trans('add_files'); ?></span>
-                    </span>
-                </div>
-                <!-- dropzone -->
-                <div id="actions" class="col-xs-12 col-sm-12 row">
-                    <div class="col-lg-7">
-                    </div>
-                    <div class="col-lg-5">
-                        <!-- The global file processing state -->
-                    <span class="fileupload-process">
-                        <div id="total-progress" class="progress progress-striped active" role="progressbar"
-                             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                 data-dz-uploadprogress></div>
-                        </div>
-                    </span>
-                    </div>
-
-                    <div class="table table-striped" class="files" id="previews">
-
-                        <div id="template" class="file-row">
-                            <!-- This is used as the file preview template -->
-                            <div>
-                                <span class="preview"><img data-dz-thumbnail/></span>
-                            </div>
-                            <div>
-                                <p class="name" data-dz-name></p>
-                                <strong class="error text-danger" data-dz-errormessage></strong>
-                            </div>
-                            <div>
-                                <p class="size" data-dz-size></p>
-
-                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
-                                     aria-valuemax="100" aria-valuenow="0">
-                                    <div class="progress-bar progress-bar-success" style="..."
-                                         data-dz-uploadprogress></div>
-                                </div>
-                            </div>
-                            <div>
-                                <button data-dz-remove class="btn btn-danger btn-sm delete">
-                                    <i class="fa fa-trash-o"></i>
-                                    <span><?php echo trans('delete'); ?></span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- stop dropzone -->
 
             </div>
         </div>

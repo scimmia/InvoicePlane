@@ -3,9 +3,8 @@
         <thead>
         <tr>
             <th><?php echo trans('client_name'); ?></th>
-            <th><?php echo trans('email_address'); ?></th>
+            <th><?php echo trans('street_address'); ?></th>
             <th><?php echo trans('phone_number'); ?></th>
-            <th style="text-align: right;"><?php echo trans('balance'); ?></th>
             <th><?php echo trans('active'); ?></th>
             <th><?php echo trans('options'); ?></th>
         </tr>
@@ -14,9 +13,8 @@
         <?php foreach ($records as $client) : ?>
             <tr>
                 <td><?php echo anchor('clients/view/' . $client->client_id, $client->client_name); ?></td>
-                <td><?php echo $client->client_email; ?></td>
+                <td><?php echo $client->client_address_1; ?></td>
                 <td><?php echo(($client->client_phone ? $client->client_phone : ($client->client_mobile ? $client->client_mobile : ''))); ?></td>
-                <td style="text-align: right;"><?php echo format_currency($client->client_invoice_balance); ?></td>
                 <td><?php echo ($client->client_active) ? trans('yes') : lang('no'); ?></td>
                 <td>
                     <div class="options btn-group">
@@ -38,12 +36,6 @@
                                 <a href="#" class="client-create-quote"
                                    data-client-name="<?php echo $client->client_name; ?>">
                                     <i class="fa fa-file fa-margin"></i> <?php echo trans('create_quote'); ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="client-create-invoice"
-                                   data-client-name="<?php echo $client->client_name; ?>">
-                                    <i class="fa fa-file-text fa-margin"></i> <?php echo trans('create_invoice'); ?>
                                 </a>
                             </li>
                             <li>

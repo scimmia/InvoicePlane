@@ -121,7 +121,7 @@ class Mdl_Quotes extends Response_Model
             'invoice_group_id' => array(
                 'field' => 'invoice_group_id',
                 'label' => trans('quote_group'),
-                'rules' => 'required'
+                'rules' => ''
             ),
             'quote_password' => array(
                 'field' => 'quote_password',
